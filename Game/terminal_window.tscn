@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://8mg0subnb03v"]
+
+[node name="TerminalWindow" type="Window"]
+position = Vector2i(35, 150)
+size = Vector2i(460, 240)
+unresizable = true
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "dsdadsada
+dasdsadad
+dasdadad
+dasdasd
+dasdadasd
+asdadsasd
+dasdad
+dsdadsada
+dasdsadad
+dasdadad
+dasdasd
+dasdadasd
+dasdada
+"

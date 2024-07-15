@@ -10,4 +10,66 @@ grow_vertical = 2
 
 [node name="Window" type="Window" parent="."]
 position = Vector2i(386, 240)
-size = Vector2i(140, 100)
+size = Vector2i(225, 85)
+wrap_controls = true
+unresizable = true
+
+[node name="ColorRect" type="ColorRect" parent="Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.476303, 0.342639, 0.288817, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Window/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "kjlkjlk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Window/ColorRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="TerminalWindow" type="Window" parent="."]
+position = Vector2i(35, 150)
+size = Vector2i(460, 240)
+unresizable = true
+
+[node name="Background" type="ColorRect" parent="TerminalWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TerminalWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "dsdadsada
+dasdsadad
+dasdadad
+dasdasd
+dasdadasd
+asdadsasd
+dasdad
+dsdadsada
+dasdsadad
+dasdadad
+dasdasd
+dasdadasd
+dasdada
+"
