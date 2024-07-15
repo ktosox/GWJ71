@@ -1,9 +1,73 @@
-[gd_scene format=3 uid="uid://8mg0subnb03v"]
+[gd_scene load_steps=5 format=3 uid="uid://8mg0subnb03v"]
+
+[ext_resource type="Script" path="res://terminal_window.gd" id="1_nembw"]
+
+[sub_resource type="Animation" id="Animation_fb1ru"]
+resource_name = "three_dots"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [". "],
+"method": &"send_text"
+}, {
+"args": [". "],
+"method": &"send_text"
+}, {
+"args": [". "],
+"method": &"send_text"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xov6o"]
+resource_name = "press_key"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Press any key. "],
+"method": &"send_text"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:wait_state")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w8jl2"]
+_data = {
+"press_key": SubResource("Animation_xov6o"),
+"three_dots": SubResource("Animation_fb1ru")
+}
 
 [node name="TerminalWindow" type="Window"]
 position = Vector2i(35, 150)
 size = Vector2i(460, 240)
 unresizable = true
+script = ExtResource("1_nembw")
+wait_state = true
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -13,23 +77,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Text" type="RichTextLabel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "dsdadsada
-dasdsadad
-dasdadad
-dasdasd
-dasdadasd
-asdadsasd
-dasdad
-dsdadsada
-dasdsadad
-dasdadad
-dasdasd
-dasdadasd
-dasdada
-"
+
+[node name="CommonStuff" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w8jl2")
+}
+autoplay = "three_dots"

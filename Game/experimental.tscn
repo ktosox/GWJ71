@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ctwusyfpc40sb"]
+[gd_scene load_steps=2 format=3 uid="uid://ctwusyfpc40sb"]
+
+[ext_resource type="PackedScene" uid="uid://8mg0subnb03v" path="res://terminal_window.tscn" id="1_cfan2"]
 
 [node name="Experimental" type="Control"]
 layout_mode = 3
@@ -40,36 +42,4 @@ vertical_alignment = 1
 [node name="ProgressBar" type="ProgressBar" parent="Window/ColorRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="TerminalWindow" type="Window" parent="."]
-position = Vector2i(35, 150)
-size = Vector2i(460, 240)
-unresizable = true
-
-[node name="Background" type="ColorRect" parent="TerminalWindow"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="TerminalWindow"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "dsdadsada
-dasdsadad
-dasdadad
-dasdasd
-dasdadasd
-asdadsasd
-dasdad
-dsdadsada
-dasdsadad
-dasdadad
-dasdasd
-dasdadasd
-dasdada
-"
+[node name="TerminalWindow" parent="." instance=ExtResource("1_cfan2")]
