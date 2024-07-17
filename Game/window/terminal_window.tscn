@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb1p0tolvip70"]
+
+[ext_resource type="PackedScene" uid="uid://bon50ledsij76" path="res://window/base_window.tscn" id="1_ba6xm"]
+[ext_resource type="PackedScene" uid="uid://cs3qh1atavbuw" path="res://window/terminal.tscn" id="2_kfcnd"]
+
+[node name="BaseWindow" instance=ExtResource("1_ba6xm")]
+size = Vector2i(360, 240)
+
+[node name="Terminal" parent="." index="0" instance=ExtResource("2_kfcnd")]
+offset_right = 260.0
+offset_bottom = 140.0

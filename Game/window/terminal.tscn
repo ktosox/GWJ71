@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs3qh1atavbuw"]
+
+[ext_resource type="Script" path="res://window/terminal.gd" id="1_sr5r0"]
+
+[sub_resource type="Animation" id="Animation_xov6o"]
+resource_name = "press_key"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Terminal:wait_state")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Terminal")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Press any key. "],
+"method": &"send_text"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fb1ru"]
+resource_name = "three_dots"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Terminal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [". "],
+"method": &"send_text"
+}, {
+"args": [". "],
+"method": &"send_text"
+}, {
+"args": [". "],
+"method": &"send_text"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w8jl2"]
+_data = {
+"press_key": SubResource("Animation_xov6o"),
+"three_dots": SubResource("Animation_fb1ru")
+}
+
+[node name="Terminal" type="ColorRect"]
+custom_minimum_size = Vector2(360, 240)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -920.0
+offset_bottom = -480.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_sr5r0")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CommonStuff" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_w8jl2")
+}
+autoplay = "press_key"

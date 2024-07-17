@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctwusyfpc40sb"]
-
-[ext_resource type="PackedScene" uid="uid://8mg0subnb03v" path="res://terminal_window.tscn" id="1_cfan2"]
+[gd_scene format=3 uid="uid://ctwusyfpc40sb"]
 
 [node name="Experimental" type="Control"]
 layout_mode = 3
@@ -41,5 +39,3 @@ vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="Window/ColorRect/VBoxContainer"]
 layout_mode = 2
-
-[node name="TerminalWindow" parent="." instance=ExtResource("1_cfan2")]

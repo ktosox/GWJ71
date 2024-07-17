@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dujisv8k7etk0"]
+[gd_scene load_steps=2 format=3 uid="uid://dujisv8k7etk0"]
 
 [ext_resource type="Script" path="res://tests/test_terminal_window.gd" id="1_egu51"]
-[ext_resource type="PackedScene" uid="uid://8mg0subnb03v" path="res://terminal_window.tscn" id="1_p8id4"]
 
 [node name="TestTerminalWindow" type="Control"]
 layout_mode = 3
@@ -11,8 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_egu51")
-
-[node name="TerminalWindow" parent="." instance=ExtResource("1_p8id4")]
 
 [node name="LineEdit" type="LineEdit" parent="."]
 layout_mode = 0
@@ -43,6 +40,16 @@ offset_left = 627.0
 offset_top = 224.0
 offset_right = 672.0
 offset_bottom = 244.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
