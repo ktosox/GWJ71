@@ -1,9 +1,16 @@
-[gd_scene format=3 uid="uid://3cnis16lftyq"]
+[gd_scene load_steps=2 format=3 uid="uid://3cnis16lftyq"]
 
-[node name="ItemPreview" type="Control"]
-layout_mode = 3
+[ext_resource type="Texture2D" uid="uid://dcmua0bie6ful" path="res://resources/textures/dodo.png" id="1_uvpki"]
+
+[node name="ItemPreview" type="TextureRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -1236.0
+offset_bottom = -676.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("1_uvpki")
+expand_mode = 1
