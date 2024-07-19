@@ -21,6 +21,8 @@ func empty_item_slot():
 	pass
 
 func _get_drag_data(at_position):
+	if item_data == null:
+		return
 	var center = Control.new()
 	var preview = item_preview_scene.instantiate() as TextureRect
 	
@@ -30,16 +32,19 @@ func _get_drag_data(at_position):
 	center.add_child(preview)
 	preview.position = Vector2(-20,-20)
 	set_drag_preview(center)
-
+	item_data.set_meta("Item_Data",1)
+	item_data.set_meta("ParentSlot",self)
 	return item_data
 	pass
 
 func _can_drop_data(at_position, data):
-	if data.is_class("Item_Data") and item_data == null :
+	if data.has_meta("Item_Data") and item_data == null :
 		return true
 	return false
 	pass
 
 func _drop_data(at_position, data):
+	if data.has_meta("ParentSlot"):
+		data.get_meta("ParentSlot").empty_item_slot()
 	load_item_data(data)
 	pass
