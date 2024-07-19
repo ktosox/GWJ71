@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxalcd7oub5gi"]
+[gd_scene load_steps=3 format=3 uid="uid://bxalcd7oub5gi"]
 
 [ext_resource type="Script" path="res://tests/test_swapper_window.gd" id="1_a4lh8"]
+[ext_resource type="PackedScene" uid="uid://b3fa0c33wbe13" path="res://window/swapper_mini_game.tscn" id="2_gfvk2"]
 
 [node name="TestSwapperWindow" type="Control"]
 layout_mode = 3
@@ -10,3 +11,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a4lh8")
+
+[node name="SwapperMiniGame" parent="." instance=ExtResource("2_gfvk2")]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 218.0
+offset_right = 612.0
+offset_bottom = 418.0
