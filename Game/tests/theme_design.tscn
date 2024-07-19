@@ -1,4 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://66yjxgbibl3u"]
+[gd_scene load_steps=10 format=3 uid="uid://66yjxgbibl3u"]
+
+[ext_resource type="Texture2D" uid="uid://duegyo4rfiy6y" path="res://resources/UI/button_middle.png" id="1_djokj"]
+[ext_resource type="Texture2D" uid="uid://b6r525qk2shp4" path="res://resources/UI/button_border.png" id="2_8sh4r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4wmk"]
+texture = ExtResource("1_djokj")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(2, 2, 36, 36)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r3gbi"]
+texture = ExtResource("1_djokj")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(2, 2, 36, 36)
+modulate_color = Color(0.473976, 0.473976, 0.473976, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_50jt3"]
+texture = ExtResource("1_djokj")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(2, 2, 36, 36)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k26q1"]
+texture = ExtResource("1_djokj")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+region_rect = Rect2(2, 2, 36, 36)
+draw_center = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qggwc"]
 bg_color = Color(0.0886297, 0.145096, 0.772723, 1)
@@ -21,20 +62,50 @@ shadow_size = 1
 shadow_offset = Vector2(1, 1)
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5g35a"]
+bg_color = Color(0.0627451, 0.105882, 0.615686, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.356863, 0.356863, 0.356863, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+expand_margin_left = 5.0
+expand_margin_top = 28.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+anti_aliasing = false
+
 [sub_resource type="Theme" id="Theme_qh87c"]
-Window/colors/title_color = Color(0.85098, 0.0941176, 0.0980392, 1)
+Button/styles/focus = SubResource("StyleBoxTexture_e4wmk")
+Button/styles/hover = SubResource("StyleBoxTexture_r3gbi")
+Button/styles/normal = SubResource("StyleBoxTexture_50jt3")
+Button/styles/pressed = SubResource("StyleBoxTexture_k26q1")
+Window/colors/title_color = Color(0.388235, 1, 0.32549, 1)
 Window/colors/title_outline_modulate = Color(0, 0, 0, 1)
 Window/constants/close_h_offset = 20
 Window/constants/close_v_offset = 20
 Window/constants/title_height = 28
 Window/constants/title_outline_size = 2
 Window/styles/embedded_border = SubResource("StyleBoxFlat_qggwc")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_5g35a")
 
 [node name="ThemeDesign" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 10.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qh87c")
@@ -56,3 +127,52 @@ color = Color(0.151276, 0.151276, 0.151276, 1)
 offset_right = 69.0
 offset_bottom = 23.0
 text = "greetinfs"
+
+[node name="Window2" type="Window" parent="."]
+position = Vector2i(895, 240)
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+modulate = Color(0, 0.652595, 0.356148, 1)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 129.0
+offset_top = 250.0
+offset_right = 294.0
+offset_bottom = 370.0
+texture = ExtResource("1_djokj")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NinePatchRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8sh4r")
+region_rect = Rect2(1, 1, 18, 18)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(0.287436, 0.646669, 0.671752, 1)
+layout_mode = 0
+offset_left = 124.0
+offset_top = 107.0
+offset_right = 347.0
+offset_bottom = 220.0
+text = "hello"
+
+[node name="Button2" type="Button" parent="."]
+self_modulate = Color(0.907394, 0.311526, 0.731095, 1)
+layout_mode = 0
+offset_left = 397.0
+offset_top = 20.0
+offset_right = 620.0
+offset_bottom = 133.0
+text = "hello"
