@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0sd0etmmqi4y"]
+
+[ext_resource type="TileSet" uid="uid://mmbikemlfgew" path="res://parts/cables/cable_tile_set.tres" id="1_4jsyv"]
+
+[node name="Cables" type="TileMap"]
+tile_set = ExtResource("1_4jsyv")
+format = 2
