@@ -1,11 +1,10 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://mmbikemlfgew"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dub2eihkuyujm"]
 
-[ext_resource type="Texture2D" uid="uid://udv77aayy45f" path="res://parts/cables/CablesTiles.png" id="1_wfuax"]
+[ext_resource type="Texture2D" uid="uid://mkoqiwa1hy14" path="res://parts/pipes/PipeTiles.png" id="1_8n05v"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_teenp"]
-resource_name = "cabletuiles"
-texture = ExtResource("1_wfuax")
-texture_region_size = Vector2i(8, 8)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jkwa5"]
+resource_name = "pipestiles"
+texture = ExtResource("1_8n05v")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -88,8 +87,7 @@ texture_region_size = Vector2i(8, 8)
 3:3/0/terrains_peering_bit/top_side = 0
 
 [resource]
-tile_size = Vector2i(8, 8)
 terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "Terrain 0"
-terrain_set_0/terrain_0/color = Color(0.358145, 0.239203, 0.167634, 1)
-sources/4 = SubResource("TileSetAtlasSource_teenp")
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/0 = SubResource("TileSetAtlasSource_jkwa5")

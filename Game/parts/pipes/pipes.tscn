@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://caclh870qbtn3"]
+
+[ext_resource type="TileSet" uid="uid://dub2eihkuyujm" path="res://parts/pipes/pipe_tile_set.tres" id="1_tv8gc"]
+
+[node name="Pipes" type="TileMap"]
+tile_set = ExtResource("1_tv8gc")
+format = 2
