@@ -17,6 +17,6 @@ func _on_button_pressed():
 	new_item.name = "derp"
 	var test_textures = [load("res://resources/textures/dodo.png"),load("res://resources/textures/cardboard-box.png"),load("res://resources/textures/id-card.png"),load("res://resources/textures/test-tube-rack.png")]
 	new_item.texture = test_textures[randi()%test_textures.size()]
-	
+	new_item.color = Color8(randi_range(0,255),randi_range(0,255),randi_range(0,255))
 	$Inventory.place_item(new_item)
 	pass # Replace with function body.

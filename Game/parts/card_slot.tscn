@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://c53hg16gh72vg"]
+
+[ext_resource type="Script" path="res://parts/card_slot.gd" id="1_xbksc"]
+[ext_resource type="Script" path="res://parts/HitBox.gd" id="2_2nuh4"]
+
+[node name="CardSlot" type="Node2D"]
+script = ExtResource("1_xbksc")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-60, -19, -60, 20, 58, 19, 59, -19)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(-60, 0, -60, 24, 60, 24, 60, -24, -60, -24, -60, 0)
+default_color = Color(0.490196, 0.443137, 1, 1)
+joint_mode = 1
+begin_cap_mode = 1
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-50, -14, -49, 14, 50, 15, 49, -14)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(0, -2.53191)
+scale = Vector2(1, 0.829787)
+polygon = PackedVector2Array(-44, -9, -47, 35, 49, 38, 44, -9)
+
+[node name="Line2D" type="Line2D" parent="Polygon2D3"]
+points = PackedVector2Array(-38, -10, -39, 31, 43, 33, 40, -11, 21, -11, 21, 22, 8, 26, -16, 23, -7, -11, -13, 5, -31, 4, -31, -13)
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Polygon2D3"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 43.0
+offset_top = -7.0
+offset_right = 87.0
+offset_bottom = 42.0
+rotation = 1.5708
+text = "xyz
+ces"
+
+[node name="HitBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -65.0
+offset_top = -29.0
+offset_right = 65.0
+offset_bottom = 29.0
+script = ExtResource("2_2nuh4")
+
+[connection signal="card_accepted" from="HitBox" to="." method="_on_hit_box_card_accepted"]
+[connection signal="gui_input" from="HitBox" to="." method="_on_hit_box_gui_input"]

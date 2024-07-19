@@ -12,12 +12,14 @@ func load_item_data(data : Item_Data):
 	item_data = data
 	$ItemTexture.texture = data.texture
 	$ItemTexture.visible = true
+	$ItemTexture.modulate = data.color
 	pass
 
 func empty_item_slot():
 	$ItemTexture.texture = null
 	item_data = null
 	$ItemTexture.visible = false
+	$ItemTexture.modulate = Color("white")
 	pass
 
 func _get_drag_data(at_position):
@@ -25,14 +27,13 @@ func _get_drag_data(at_position):
 		return
 	var center = Control.new()
 	var preview = item_preview_scene.instantiate() as TextureRect
-	
+	preview.modulate = item_data.color
 	
 	preview.texture = $ItemTexture.texture
 	
 	center.add_child(preview)
 	preview.position = Vector2(-20,-20)
 	set_drag_preview(center)
-	item_data.set_meta("Item_Data",1)
 	item_data.set_meta("ParentSlot",self)
 	return item_data
 	pass

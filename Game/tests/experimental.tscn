@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://ctwusyfpc40sb"]
+[gd_scene load_steps=3 format=3 uid="uid://ctwusyfpc40sb"]
+
+[ext_resource type="PackedScene" uid="uid://ds4t0bl306530" path="res://parts/dial.tscn" id="1_yqpam"]
+[ext_resource type="PackedScene" uid="uid://c53hg16gh72vg" path="res://parts/card_slot.tscn" id="2_6ypw5"]
 
 [node name="Experimental" type="Control"]
 layout_mode = 3
@@ -39,3 +42,9 @@ vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="Window/ColorRect/VBoxContainer"]
 layout_mode = 2
+
+[node name="Dial" parent="." instance=ExtResource("1_yqpam")]
+position = Vector2(573, 503)
+
+[node name="CardSlot" parent="." instance=ExtResource("2_6ypw5")]
+position = Vector2(909, 545)

@@ -1,6 +1,9 @@
 extends ColorRect
 
 
+func _ready():
+	GM.current_inventory = self
+
 func place_item(item : Item_Data):
 	var empty_slot = get_first_empty()
 	
