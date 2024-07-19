@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://cf175pyub6aj8"]
+[gd_scene load_steps=3 format=3 uid="uid://cf175pyub6aj8"]
+
+[ext_resource type="Script" path="res://window/inventory.gd" id="1_btqvr"]
+[ext_resource type="PackedScene" uid="uid://bnduqowqnnu86" path="res://item/item_slot.tscn" id="2_jeyii"]
 
 [node name="Inventory" type="ColorRect"]
 custom_minimum_size = Vector2(276, 140)
@@ -10,6 +13,7 @@ offset_bottom = -580.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.239216, 0.14902, 0.14902, 1)
+script = ExtResource("1_btqvr")
 
 [node name="Layout" type="GridContainer" parent="."]
 layout_mode = 1
@@ -26,34 +30,26 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 4
 
-[node name="ColorRect" type="ColorRect" parent="Layout"]
-custom_minimum_size = Vector2(64, 64)
+[node name="ItemSlot" parent="Layout" instance=ExtResource("2_jeyii")]
 layout_mode = 2
 
-[node name="ColorRect2" type="ColorRect" parent="Layout"]
-custom_minimum_size = Vector2(64, 64)
+[node name="ItemSlot2" parent="Layout" instance=ExtResource("2_jeyii")]
 layout_mode = 2
 
-[node name="ColorRect3" type="ColorRect" parent="Layout"]
-custom_minimum_size = Vector2(64, 64)
+[node name="ItemSlot3" parent="Layout" instance=ExtResource("2_jeyii")]
 layout_mode = 2
 
-[node name="ColorRect4" type="ColorRect" parent="Layout"]
-custom_minimum_size = Vector2(64, 64)
+[node name="ItemSlot4" parent="Layout" instance=ExtResource("2_jeyii")]
 layout_mode = 2
 
-[node name="ColorRect5" type="ColorRect" parent="Layout"]
-custom_minimum_size = Vector2(64, 64)
+[node name="ItemSlot5" parent="Layout" instance=ExtResource("2_jeyii")]
 layout_mode = 2
 
-[node name="ColorRect6" type="ColorRect" parent="Layout"]
-custom_minimum_size = Vector2(64, 64)
+[node name="ItemSlot6" parent="Layout" instance=ExtResource("2_jeyii")]
 layout_mode = 2
 
-[node name="ColorRect7" type="ColorRect" parent="Layout"]
-custom_minimum_size = Vector2(64, 64)
+[node name="ItemSlot7" parent="Layout" instance=ExtResource("2_jeyii")]
 layout_mode = 2
 
-[node name="ColorRect8" type="ColorRect" parent="Layout"]
-custom_minimum_size = Vector2(64, 64)
+[node name="ItemSlot8" parent="Layout" instance=ExtResource("2_jeyii")]
 layout_mode = 2

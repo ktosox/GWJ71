@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://0laxl3sl4vkt"]
 
-[ext_resource type="PackedScene" uid="uid://dntx456h384j0" path="res://window/inventory_window.tscn" id="1_3hkir"]
 [ext_resource type="Script" path="res://tests/test_inventory_window.gd" id="1_sp6ep"]
+[ext_resource type="PackedScene" uid="uid://cf175pyub6aj8" path="res://window/inventory.tscn" id="2_l4nqf"]
 
 [node name="TestInventoryWindow" type="Control"]
 layout_mode = 3
@@ -12,4 +12,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sp6ep")
 
-[node name="BaseWindow" parent="." instance=ExtResource("1_3hkir")]
+[node name="Inventory" parent="." instance=ExtResource("2_l4nqf")]
+layout_mode = 1
+offset_left = 35.0
+offset_top = 61.0
+offset_right = -969.0
+offset_bottom = -519.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 67.0
+offset_right = 651.0
+offset_bottom = 98.0
+text = "create random item"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
