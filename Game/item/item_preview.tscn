@@ -1,8 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://3cnis16lftyq"]
+[gd_scene load_steps=3 format=3 uid="uid://3cnis16lftyq"]
 
 [ext_resource type="Texture2D" uid="uid://dcmua0bie6ful" path="res://resources/textures/dodo.png" id="1_uvpki"]
+[ext_resource type="Script" path="res://item/item_preview.gd" id="2_2cfhd"]
 
 [node name="ItemPreview" type="TextureRect"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("1_uvpki")
+expand_mode = 1
+script = ExtResource("2_2cfhd")
+
+[node name="Window" type="Window" parent="."]
+size = Vector2i(64, 64)
+mouse_passthrough_polygon = PackedVector2Array(0, 0, 1, 0, 1, 1, 0, 1)
+unresizable = true
+borderless = true
+always_on_top = true
+unfocusable = true
+mouse_passthrough = true
+
+[node name="RealPreview" type="TextureRect" parent="Window"]
 custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0
