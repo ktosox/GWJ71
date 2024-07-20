@@ -14,6 +14,21 @@ texture = ExtResource("4_fwkse")
 is_card = true
 color = Color(1, 0.192157, 0.258824, 1)
 
+[sub_resource type="Animation" id="Animation_2mf76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ResetLights:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_af03s"]
 resource_name = "new_animation"
 length = 2.0
@@ -31,21 +46,6 @@ tracks/0/keys = {
 "values": [4.0, 0.0, 4.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_2mf76"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ResetLights:value")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lx8ig"]
 _data = {
 "RESET": SubResource("Animation_2mf76"),
@@ -53,8 +53,9 @@ _data = {
 }
 
 [node name="EmergencyReset" type="ColorRect"]
-offset_right = 213.0
-offset_bottom = 113.0
+custom_minimum_size = Vector2(210, 115)
+offset_right = 210.0
+offset_bottom = 115.0
 color = Color(1, 0.470588, 0.168627, 1)
 script = ExtResource("1_nje28")
 
@@ -88,3 +89,5 @@ libraries = {
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="card_inserted" from="CardSlot" to="." method="_on_card_slot_card_inserted"]
+[connection signal="card_removed" from="CardSlot" to="." method="_on_card_slot_card_removed"]

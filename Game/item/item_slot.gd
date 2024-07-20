@@ -26,6 +26,7 @@ func _get_drag_data(at_position):
 	if item_data == null:
 		return
 	var center = Control.new()
+	
 	var preview = item_preview_scene.instantiate() as TextureRect
 	preview.modulate = item_data.color
 	
@@ -34,7 +35,9 @@ func _get_drag_data(at_position):
 	center.add_child(preview)
 	preview.position = Vector2(-20,-20)
 	set_drag_preview(center)
+
 	item_data.set_meta("ParentSlot",self)
+
 	return item_data
 	pass
 

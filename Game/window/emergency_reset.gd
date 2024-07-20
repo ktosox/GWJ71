@@ -9,6 +9,8 @@ var reset_progress = 0.0
 var success = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if $CardSlot.inserted_card == null:
+		$Button.disabled = true
 	pass # Replace with function body.
 
 
@@ -37,4 +39,14 @@ func _on_button_button_up():
 		emit_signal("reset_completed")
 		print("bip")
 		success = false
+	pass # Replace with function body.
+
+
+func _on_card_slot_card_inserted():
+	$Button.disabled = false
+	pass # Replace with function body.
+
+
+func _on_card_slot_card_removed():
+	$Button.disabled = true
 	pass # Replace with function body.

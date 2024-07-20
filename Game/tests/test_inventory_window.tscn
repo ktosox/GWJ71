@@ -1,17 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://0laxl3sl4vkt"]
+[gd_scene load_steps=5 format=3 uid="uid://0laxl3sl4vkt"]
 
 [ext_resource type="Script" path="res://tests/test_inventory_window.gd" id="1_sp6ep"]
 [ext_resource type="PackedScene" uid="uid://cf175pyub6aj8" path="res://window/inventory.tscn" id="2_l4nqf"]
-[ext_resource type="PackedScene" uid="uid://c53hg16gh72vg" path="res://parts/card_slot.tscn" id="3_mqs02"]
-[ext_resource type="Script" path="res://item/item_data.gd" id="4_ai75y"]
-[ext_resource type="Texture2D" uid="uid://b5l3ao50sjepl" path="res://resources/textures/id-card.png" id="5_bjgp4"]
-
-[sub_resource type="Resource" id="Resource_5kdn5"]
-script = ExtResource("4_ai75y")
-name = "yellow card"
-texture = ExtResource("5_bjgp4")
-is_card = true
-color = Color(0.663612, 0.66186, 3.85046e-07, 1)
+[ext_resource type="PackedScene" uid="uid://bon50ledsij76" path="res://window/base_window.tscn" id="3_mhq7r"]
+[ext_resource type="PackedScene" uid="uid://qodkqqspdu45" path="res://window/emergency_reset.tscn" id="4_ysm3e"]
 
 [node name="TestInventoryWindow" type="Control"]
 layout_mode = 3
@@ -22,12 +14,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sp6ep")
 
-[node name="Inventory" parent="." instance=ExtResource("2_l4nqf")]
-layout_mode = 1
-offset_left = 35.0
-offset_top = 61.0
-offset_right = -969.0
-offset_bottom = -519.0
+[node name="BaseWindow" parent="." instance=ExtResource("3_mhq7r")]
+position = Vector2i(790, 135)
+size = Vector2i(210, 115)
+
+[node name="EmergencyReset" parent="BaseWindow" instance=ExtResource("4_ysm3e")]
+offset_right = 213.47
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -37,8 +29,11 @@ offset_right = 651.0
 offset_bottom = 98.0
 text = "create random item"
 
-[node name="CardSlot" parent="." instance=ExtResource("3_mqs02")]
-position = Vector2(853, 355)
-inserted_card = SubResource("Resource_5kdn5")
+[node name="BaseWindow2" parent="." instance=ExtResource("3_mhq7r")]
+size = Vector2i(276, 140)
+
+[node name="Inventory" parent="BaseWindow2" instance=ExtResource("2_l4nqf")]
+offset_right = 0.0
+offset_bottom = 0.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
