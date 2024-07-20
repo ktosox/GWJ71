@@ -1,6 +1,8 @@
 extends Node2D
 
- 
+signal card_inserted
+
+signal card_removed
 
 @export var inserted_card : Item_Data
 
@@ -13,6 +15,7 @@ func take_out_card():
 	inserted_card = null
 	$Polygon2D3.visible = false
 	$HitBox.full = false
+	emit_signal("card_removed")
 	pass
 
 func insert_card(card : Item_Data):
@@ -20,6 +23,7 @@ func insert_card(card : Item_Data):
 	$Polygon2D3.visible = true
 	$Polygon2D3.color = card.color
 	$HitBox.full = true
+	emit_signal("card_inserted")
 
 func _on_hit_box_gui_input(event : InputEvent):
 	if event.is_action_pressed("LMB") and inserted_card != null:
