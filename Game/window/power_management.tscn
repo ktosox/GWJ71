@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://vvjnqbewbo2l"]
+
+[ext_resource type="PackedScene" uid="uid://c53hg16gh72vg" path="res://parts/card_slot.tscn" id="1_fnk31"]
+
+[node name="PowerManagement" type="ColorRect"]
+custom_minimum_size = Vector2(380, 260)
+color = Color(0.776471, 0.462745, 0, 1)
+
+[node name="CardSlot" parent="." instance=ExtResource("1_fnk31")]
+position = Vector2(302, 218)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
