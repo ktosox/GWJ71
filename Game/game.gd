@@ -4,7 +4,7 @@ extends Control
 
 @onready var common_stuff = $TerminalWindow/Terminal.get_node("CommonStuff")
 
-var hard_reset_complete
+var hard_reset_complete = false
 
 func _enter_tree():
 	GM.current_bar_scene = $MiniBar
@@ -54,7 +54,7 @@ func boot_os():
 	terminal.send_text("Welcome to lastHope OS 2.15 (Pepperoni)\n\n")
 	
 func power_check():
-	terminal.send_text("Power check ")
+	terminal.send_text("\nPower check ")
 	common_stuff.play("three_dots")
 	await common_stuff.animation_finished
 	terminal.new_line()
@@ -78,7 +78,24 @@ func try_hard_reset():
 	pass
 
 func request_hard_reset():
-	terminal.send_text("Press and hold the reset button on the RR terminal for about 5 seconds until the lights flash. Then release the button and pull out the access card to complete the hard reset.")
+	terminal.send_text("Press and hold the reset button on the RR terminal for about 5 seconds until the lights flash. Then release the button and pull out the access card to complete the hard reset.\n")
 	terminal.wait_state = true
 	await terminal.key_pressed
+	while hard_reset_complete == false:
+		terminal.send_text("Please complete the hard reset before continuing.\n")
+		terminal.set_deferred("wait_state",true)
+		await terminal.key_pressed
 	pass
+
+
+func _on_emergency_reset_reset_completed():
+	hard_reset_complete = true
+	pass # Replace with function body.
+
+
+func _on_card_slot_card_removed():
+	if hard_reset_complete:
+		print("go to next section")
+	pass # Replace with function body.
+
+

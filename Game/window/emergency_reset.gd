@@ -2,6 +2,8 @@ extends ColorRect
 
 signal reset_completed
 
+
+
 var reset_ongoing = false
 
 var reset_progress = 0.0

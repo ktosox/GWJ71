@@ -71,14 +71,17 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 3.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.5, 3.6, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
 "method": &"power_check"
 }, {
 "args": [],
 "method": &"try_hard_reset"
+}, {
+"args": [],
+"method": &"request_hard_reset"
 }]
 }
 
@@ -130,4 +133,9 @@ visible = false
 
 [node name="EmergencyReset" parent="EmergencyResetWindow" instance=ExtResource("5_ih810")]
 
+[connection signal="reset_completed" from="EmergencyResetWindow/EmergencyReset" to="." method="_on_emergency_reset_reset_completed"]
+[connection signal="card_inserted" from="EmergencyResetWindow/EmergencyReset/CardSlot" to="." method="_on_card_slot_card_inserted"]
+[connection signal="card_removed" from="EmergencyResetWindow/EmergencyReset/CardSlot" to="." method="_on_card_slot_card_removed"]
+
 [editable path="TerminalWindow"]
+[editable path="EmergencyResetWindow/EmergencyReset"]
