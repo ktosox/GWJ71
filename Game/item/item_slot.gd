@@ -25,16 +25,15 @@ func empty_item_slot():
 func _get_drag_data(at_position):
 	if item_data == null:
 		return
-	var center = Control.new()
 	
 	var preview = item_preview_scene.instantiate() as TextureRect
 	preview.modulate = item_data.color
 	
 	preview.texture = $ItemTexture.texture
-	
-	center.add_child(preview)
-	preview.position = Vector2(-20,-20)
-	set_drag_preview(center)
+	if get_viewport().is_class("Window"):
+		preview.special_offset += Vector2(get_viewport().position)
+
+	set_drag_preview(preview)
 
 	item_data.set_meta("ParentSlot",self)
 

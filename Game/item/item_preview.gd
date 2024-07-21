@@ -1,5 +1,6 @@
 extends TextureRect
 
+var special_offset = Vector2(10,10)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,5 +13,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Window.position = get_global_mouse_position() + Vector2(55,55)
+	$Window.position = get_global_mouse_position() + special_offset
 	pass

@@ -5,7 +5,7 @@ var bar_button_scene = preload("res://window/bar_button.tscn")
 
 
 func _ready():
-	create_bar_item()
+
 	pass
 
 

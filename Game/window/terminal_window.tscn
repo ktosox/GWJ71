@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cs3qh1atavbuw" path="res://window/terminal.tscn" id="2_kfcnd"]
 
 [node name="BaseWindow" instance=ExtResource("1_ba6xm")]
-size = Vector2i(360, 240)
+size = Vector2i(480, 300)
 
 [node name="Terminal" parent="." index="0" instance=ExtResource("2_kfcnd")]
 offset_right = 260.0

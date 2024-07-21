@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr8lihv3hj1ja"]
+[gd_scene load_steps=10 format=3 uid="uid://cr8lihv3hj1ja"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_5n1et"]
 [ext_resource type="PackedScene" uid="uid://cb1p0tolvip70" path="res://window/terminal_window.tscn" id="2_fn2dj"]
+[ext_resource type="PackedScene" uid="uid://bon50ledsij76" path="res://window/base_window.tscn" id="3_so8v6"]
+[ext_resource type="PackedScene" uid="uid://cf175pyub6aj8" path="res://window/inventory.tscn" id="4_4lsec"]
+[ext_resource type="PackedScene" uid="uid://qodkqqspdu45" path="res://window/emergency_reset.tscn" id="5_ih810"]
 
 [sub_resource type="Animation" id="Animation_geqty"]
 resource_name = "Hello World"
-length = 6.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,9 +15,30 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.3, 2.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
 "values": [{
+"args": [],
+"method": &"system_diagnostic"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5ic00"]
+resource_name = "boot OS"
+length = 9.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.6, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"boot_os"
+}, {
 "args": [],
 "method": &"mount_sys_root"
 }, {
@@ -23,10 +46,47 @@ tracks/0/keys = {
 "method": &"mount_inventory"
 }]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Intro")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(7.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["request reset", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_toqj0"]
+resource_name = "request reset"
+length = 8.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"power_check"
+}, {
+"args": [],
+"method": &"try_hard_reset"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7ii7q"]
 _data = {
-"Hello World": SubResource("Animation_geqty")
+"Hello World": SubResource("Animation_geqty"),
+"boot OS": SubResource("Animation_5ic00"),
+"request reset": SubResource("Animation_toqj0")
 }
 
 [node name="Game" type="Control"]
@@ -53,5 +113,21 @@ libraries = {
 "": SubResource("AnimationLibrary_7ii7q")
 }
 autoplay = "Hello World"
+
+[node name="InventoryWindow" parent="." instance=ExtResource("3_so8v6")]
+position = Vector2i(795, 185)
+size = Vector2i(276, 140)
+visible = false
+
+[node name="Inventory" parent="InventoryWindow" instance=ExtResource("4_4lsec")]
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="EmergencyResetWindow" parent="." instance=ExtResource("3_so8v6")]
+position = Vector2i(635, 430)
+size = Vector2i(210, 115)
+visible = false
+
+[node name="EmergencyReset" parent="EmergencyResetWindow" instance=ExtResource("5_ih810")]
 
 [editable path="TerminalWindow"]
