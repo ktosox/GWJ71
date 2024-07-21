@@ -27,7 +27,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": ["Press any key. "],
+"args": ["Press any key to resume. "],
 "method": &"send_text"
 }]
 }
@@ -87,4 +87,3 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_w8jl2")
 }
-autoplay = "press_key"

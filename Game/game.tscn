@@ -1,6 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr8lihv3hj1ja"]
+[gd_scene load_steps=5 format=3 uid="uid://cr8lihv3hj1ja"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_5n1et"]
+[ext_resource type="PackedScene" uid="uid://cb1p0tolvip70" path="res://window/terminal_window.tscn" id="2_fn2dj"]
+
+[sub_resource type="Animation" id="Animation_geqty"]
+resource_name = "Hello World"
+length = 6.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"mount_sys_root"
+}, {
+"args": [],
+"method": &"mount_inventory"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ii7q"]
+_data = {
+"Hello World": SubResource("Animation_geqty")
+}
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -14,9 +41,17 @@ script = ExtResource("1_5n1et")
 [node name="MiniBar" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 0
+
+[node name="TerminalWindow" parent="." instance=ExtResource("2_fn2dj")]
+position = Vector2i(50, 165)
+
+[node name="Intro" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7ii7q")
+}
+autoplay = "Hello World"
+
+[editable path="TerminalWindow"]

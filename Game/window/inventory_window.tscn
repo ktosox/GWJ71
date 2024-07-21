@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cf175pyub6aj8" path="res://window/inventory.tscn" id="2_wdolo"]
 
 [node name="BaseWindow" instance=ExtResource("1_o4jph")]
+position = Vector2i(650, 140)
 size = Vector2i(276, 140)
 
 [node name="Inventory" parent="." index="0" instance=ExtResource("2_wdolo")]

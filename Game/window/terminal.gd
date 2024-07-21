@@ -33,3 +33,4 @@ func new_line():
 func clear_text():
 	$Text.clear()
 	pass
+
