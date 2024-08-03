@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4gpdh2j2tmoa"]
+
+[ext_resource type="Texture2D" uid="uid://be4rltotnrdbe" path="res://resources/SVGs/rockerswitch_down.svg" id="1_8dcbc"]
+[ext_resource type="Texture2D" uid="uid://baopmjf8wudtj" path="res://resources/SVGs/rockerswitch_up.svg" id="2_dhekh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk1o2"]
+atlas = ExtResource("1_8dcbc")
+region = Rect2(20, 0, 60, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej3vh"]
+atlas = ExtResource("2_dhekh")
+region = Rect2(20, 0, 60, 100)
+
+[node name="SwitchUpDown" type="CheckButton"]
+offset_left = 881.0
+offset_top = 359.0
+offset_right = 953.0
+offset_bottom = 467.0
+scale = Vector2(0.5, 0.5)
+theme_override_icons/checked = SubResource("AtlasTexture_vk1o2")
+theme_override_icons/unchecked = SubResource("AtlasTexture_ej3vh")
